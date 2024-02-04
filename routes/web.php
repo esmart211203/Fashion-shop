@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('frontend.index');
+})->name('index');
+
+// Route shop 
+Route::get('/shop', [ShopController::class, 'viewShop'])->name('viewShop');
+Route::get('/shop-category', [ShopController::class, 'viewShopCategory'])->name('viewShopCategory');
+
+// Route product
+Route::get('/detail-product', [ProductController::class, 'show'])->name('DetailProduct');
