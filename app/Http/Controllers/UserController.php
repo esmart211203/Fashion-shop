@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.product.index');
+        return view('admin.user.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -33,9 +33,9 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id)
     {
-        return view('.frontend.pages.detail_product');
+        //
     }
 
     /**
@@ -43,7 +43,7 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.user.edit');
     }
 
     /**

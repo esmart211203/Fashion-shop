@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +26,15 @@ Route::get('/shop-category', [ShopController::class, 'viewShopCategory'])->name(
 
 // Route product
 Route::get('/detail-product', [ProductController::class, 'show'])->name('DetailProduct');
+
+
+
+
+//route Admin
+Route::prefix('admin')->group(function () {
+    Route::get('', [AuthController::class, 'viewAdmin'])->name('viewAdmin');
+    #User
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+    Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+});
