@@ -31,10 +31,14 @@ Route::get('/detail-product', [ProductController::class, 'show'])->name('DetailP
 
 
 //route Admin
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('', [AuthController::class, 'viewAdmin'])->name('viewAdmin');
     #User
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');
     Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 });
+
+//route
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'customLogin'])->name('custom.login');
