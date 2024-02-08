@@ -20,6 +20,17 @@
                     <li><a href="">About</a></li>
                     <li><a href="">Contact</a></li>
                     <li><a href=""><i class="fa-solid fa-bag-shopping"></i></a></li>
+                    @if(!auth()->check())
+                    <li>
+                        <a href="{{route('login')}}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                    @else
+                    <li>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
+                    </form>
+                    </li>
+                    @endif
                     <a href="#" id="close"><i class="fas fa-times"></i></a>
                 </ul>
             </div>

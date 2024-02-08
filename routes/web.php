@@ -39,6 +39,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 });
 
-//route
+//route 
 Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('login', [AuthController::class, 'customLogin'])->name('custom.login');
+Route::post('login', [AuthController::class, 'customLogin'])->name('auth.login');
+Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('store/user', [AuthController::class, 'customRegister'])->name('auth.register');
+Route::post('logout', [AuthController::class , 'logout'])->name('logout');

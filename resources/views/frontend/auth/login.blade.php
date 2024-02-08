@@ -2,14 +2,18 @@
 @extends('frontend.base')
 
 <!-- title -->
-@section('title') Trang Chủ @endsection 
+@section('title') Trang login @endsection 
 <!-- content -->
 @section('content')
-<div id="login-container">
-<form method="post" action="{{route('custom.login')}}">
-    <input type="text" name="email">
-    <input type="password" name="password">
-    <button type="submit">Login</button>
-</form>
+<div class="login-page">
+  <div class="form">
+    <form class="login-form"  method="POST" action="{{ route('auth.login') }}">
+    @csrf
+      <input type="email" name="email" placeholder="email"/>
+      <input type="password" name="password" placeholder="password"/>
+      <button type="submit">login</button>
+      <p class="message">Not registered? <a href="{{route('register')}}">Create an account</a></p>
+    </form>
+  </div>
 </div>
 @endsection

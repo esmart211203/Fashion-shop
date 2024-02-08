@@ -13,9 +13,11 @@ class AdminAuthenticate
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-        dd("check");
-        return $next($request);
+        if (auth()->check() && auth()->user()->isAdmin()) {
+            return $next($request);
+        }
+        abort(403, 'YOU DO NOT HAVE ACCESS TO THIS SITE.');
     }
 }
