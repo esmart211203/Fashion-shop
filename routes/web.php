@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +48,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('edit/categories/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::post('update/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 
+    #Brand
+    Route::get('brands', [BrandController::class , 'index'])->name('brands.index');
+    Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
+    Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store');
+    Route::delete('brand/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+    Route::get('edit/brand/{id}', [BrandController::class, 'edit'])->name('brands.edit');
+    Route::post('update/brand/{id}', [BrandController::class, 'update'])->name('brands.update');
 });
 
 //route 

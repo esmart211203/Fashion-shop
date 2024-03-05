@@ -36,7 +36,6 @@ class CategoryController extends Controller
             'description' => 'required|string|max:255',
             'parent_category_id' => 'nullable',
         ]);
-    
         $category = new Category();
         $category->name = $validatedData['name'];
         $category->description = $validatedData['description'];
