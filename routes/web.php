@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     #User
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('users/store', [UserController::class, 'store'])->name('users.store');
     Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 
     #Category
@@ -55,6 +56,15 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::delete('brand/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
     Route::get('edit/brand/{id}', [BrandController::class, 'edit'])->name('brands.edit');
     Route::post('update/brand/{id}', [BrandController::class, 'update'])->name('brands.update');
+
+    #Product
+    Route::get('products', [ProductController::class , 'index'])->name('products.index');
+    Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('products/store', [ProductController::class, 'store'])->name('products.store');
+    Route::get('edit/products/{id}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('update/products/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('delete/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::delete('delete/product-image/{pro_image_id}', [ProductController::class, 'delete_prouct_image'])->name('products.delete.image');
 });
 
 //route 

@@ -37,16 +37,15 @@
       <tr>
         <th scope="row">{{$data->id}}</th>
         <td>{{$data->name}}</td>
-        <td>{{$data->image}}</td>
+        <td><img src="{{ asset('images/brand/' . $data->image) }}" class="img-thumbnail" width="50px" alt="Mô tả ảnh"></td>
         <td>{{$data->description}}</td>
         <td>{{$data->category_id}}</td>
-        <td style="display: flex; justify-content: space-evenly;">
-          <a href="{{route('brands.edit', $data->id)}}"><i class="fa-regular fa-eye"></i></a>
+        <td>
           <form method="POST" action="{{ route('brands.destroy', $data->id) }}">
+            <a href="{{route('brands.edit', $data->id)}}" class="btn btn-info">Edit</a>
             @csrf
             @method('DELETE')
-            <button style="color: cornflowerblue;
-            background: none;border: none;" type="submit"><i class="fa-regular fa-trash-can"></i></button>
+            <button class="btn btn-danger" type="submit">Delete</button>
           </form>
         </td>
       </tr>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +11,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        $users = User::all();
+        return view('admin.user.index',compact('users'));
     }
 
     /**
@@ -27,7 +28,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'phone' => 'required',
+            'password' => 'required|min:6|confirmed',
+            'password_confirmation' => 'required|min:6',
+            'role' => 'required|in:admin,user',
+        ]);
+        if ($request->password !== $request->password_confirmation) {
+            return redirect()->back()->withInput()->withErrors(['password_confirmation' => 'The password confirmation does not match.']);
+        }
+        return 'check';
     }
 
     /**

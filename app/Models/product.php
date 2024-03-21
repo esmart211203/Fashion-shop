@@ -15,6 +15,7 @@ class product extends Model
         'category_id',
         'price',
         'status',
+        'featured',//update
         'quantity_in_stock',
         'description',
     ];

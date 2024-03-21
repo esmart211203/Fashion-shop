@@ -17,7 +17,8 @@ return new class extends Migration
             $table->integer('brand_id');
             $table->integer('category_id');
             $table->float('price');
-            $table->boolean('status');
+            $table->string('status')->default('available');
+            $table->integer('featured')->default(0);
             $table->integer('quantity_in_stock');
             $table->text('description');
             $table->timestamps();
