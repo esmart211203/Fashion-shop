@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\IndexingController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,18 +20,22 @@ use App\Http\Controllers\BrandController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('index');
+Route::get('/', [IndexingController::class, 'index'])->name('index');
 
 // Route shop 
 Route::get('/shop', [ShopController::class, 'viewShop'])->name('viewShop');
-Route::get('/shop-category', [ShopController::class, 'viewShopCategory'])->name('viewShopCategory');
+Route::get('/shop-category/{category_id}', [ShopController::class, 'viewShopCategory'])->name('shop.category');
+Route::get('/shop-single/{product_id}', [ShopController::class, 'shopSingle'])->name('shop.single');
 
 // Route product
 Route::get('/detail-product', [ProductController::class, 'show'])->name('DetailProduct');
 
-
+//Cart
+Route::prefix('cart')->middleware('isLogin')->group(function () {
+    Route::get('/', [CartController::class, 'viewCart'])->name('cart.index');
+    Route::get('/add-product/{product_id}', [CartController::class, 'addToCart'])->name('cart.store');
+    Route::get('/delete-item/{item_id}', [CartController::class , 'deleteCartItem'])->name('cart.delete');
+});
 
 
 //route Admin

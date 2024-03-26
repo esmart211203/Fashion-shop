@@ -11,24 +11,23 @@
 <body>
         <!-- start header -->
         <section id="header">
-            <a href=""><img src="img/logo.png" alt=""></a>
+        <a href=""><img src="{{ asset('img/logo.png') }}" alt=""></a>
             <div>
                 <ul id="navbar">
                     <li><a href="{{route('index')}}" class="active">Home</a></li>
                     <li><a href="{{route('viewShop')}}">Shop</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href=""><i class="fa-solid fa-bag-shopping"></i></a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
                     @if(!auth()->check())
                     <li>
                         <a href="{{route('login')}}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
                     @else
+                    <li><a href="{{route('cart.index')}}"><i class="fa-solid fa-bag-shopping"></i></a></li>
                     <li>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
-                    </form>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
+                        </form>
                     </li>
                     @endif
                     <a href="#" id="close"><i class="fas fa-times"></i></a>
