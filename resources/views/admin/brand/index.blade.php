@@ -2,7 +2,9 @@
 @extends('./admin.base')
 
 <!-- title -->
-@section('title') Trang Quan ly danh mục @endsection 
+@section('title') Trang quản lý thương hiệu @endsection 
+@section('breadcrumb') Brand @endsection 
+
 @section('content')
 <div class="container">
 <table class="table table-hover table-bordered">

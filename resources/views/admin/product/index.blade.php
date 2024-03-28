@@ -3,6 +3,7 @@
 
 <!-- title -->
 @section('title') Trang quản lý sản phẩm @endsection 
+@section('breadcrumb') Product @endsection 
 @section('content')
 <div class="container">
 <table class="table table-hover table-bordered">

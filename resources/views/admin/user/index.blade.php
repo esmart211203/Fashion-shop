@@ -3,6 +3,7 @@
 
 <!-- title -->
 @section('title') Trang Quan ly nguoi dung @endsection 
+@section('breadcrumb') User @endsection 
 <!-- slide -->
 @section('content')
 <div class="container">

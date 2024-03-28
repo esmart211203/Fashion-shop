@@ -3,6 +3,7 @@
 
 <!-- title -->
 @section('title') Trang Quan ly danh mục @endsection 
+@section('breadcrumb') Category @endsection 
 @section('content')
 <div class="container">
 <table class="table table-hover table-bordered">

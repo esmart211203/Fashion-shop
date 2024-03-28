@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\IndexingController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,9 @@ Route::get('/shop', [ShopController::class, 'viewShop'])->name('viewShop');
 Route::get('/shop-category/{category_id}', [ShopController::class, 'viewShopCategory'])->name('shop.category');
 Route::get('/shop-single/{product_id}', [ShopController::class, 'shopSingle'])->name('shop.single');
 
+//Checkout 
+Route::post('/check-out', [OrderController::class, 'checkOut'])->name('checkout');
+
 // Route product
 Route::get('/detail-product', [ProductController::class, 'show'])->name('DetailProduct');
 
@@ -41,6 +45,11 @@ Route::prefix('cart')->middleware('isLogin')->group(function () {
 //route Admin
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('', [AuthController::class, 'viewAdmin'])->name('viewAdmin');
+    #Order
+    Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::delete('orders/{order_id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+    Route::get('orders/detai/{order_id}', [OrderController::class, 'orderDetail'])->name('orders.detail');
+    Route::get('orders/approve-status/{order_id}', [OrderController::class, 'approveOrder'])->name('orders.approve');
     #User
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');

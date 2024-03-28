@@ -192,14 +192,30 @@
                         </h2>
 
                         <hr>
-                        <span class="text-muted small">
+                        <!-- <span class="text-muted small">
                             *For United States, France and Germany applicable sales tax will be applied
-                        </span>
+                        </span> -->
                         <div class="m-t-sm">
-                            <div class="btn-group">
-                            <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
-                            <a href="#" class="btn btn-white btn-sm"> Cancel</a>
-                            </div>
+                            <form action="{{route('checkout')}}" method="POST">
+                                @csrf <!-- CSRF token for Laravel form submission -->
+
+                                <div class="mb-3">
+                                    <label for="receiver" class="form-label">Receiver</label>
+                                    <input type="text" class="form-control" id="receiver" name="receiver"  required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="text" class="form-control" id="phone" name="phone"  required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="address" name="address" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,8 @@
 
 <!-- title -->
 @section('title') Trang Quan ly @endsection 
-<!-- slide -->
+<!-- slide --> 
+@section('breadcrumb') Dashboard @endsection 
 @section('content')
     <!-- Main content -->
     <section class="content">
