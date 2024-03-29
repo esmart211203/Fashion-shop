@@ -23,7 +23,7 @@
                         <a href="{{route('login')}}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
                     @else
                     <li><a href="{{route('cart.index')}}"><i class="fa-solid fa-bag-shopping"></i></a></li>
-                    <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a href="{{ route('users.profile') }}"><i class="fa-solid fa-user"></i></a></li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

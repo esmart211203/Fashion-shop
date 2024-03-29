@@ -55,6 +55,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('users/store', [UserController::class, 'store'])->name('users.store');
     Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('user/profile', [UserController::class, 'profile'])->name('users.profile');
 
     #Category
     Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
@@ -88,3 +89,4 @@ Route::post('login', [AuthController::class, 'customLogin'])->name('auth.login')
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('store/user', [AuthController::class, 'customRegister'])->name('auth.register');
 Route::post('logout', [AuthController::class , 'logout'])->name('logout');
+Route::post('/change-password', [UserController::class, 'changePassword'])->name('update-password');
