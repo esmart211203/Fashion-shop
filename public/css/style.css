@@ -799,3 +799,39 @@ footer a:hover {
 .container .info span .fa {
     color: #EF3B3A;
 }
+
+
+/* form search */
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.input-search {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    font-size: 16px;
+}
+
+.btn-search {
+    padding: 10px 20px;
+    background-color: #7da1c8;
+    color: #fff;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #0056b3;
+}
+
+.btn-search i {
+    font-size: 18px;
+}

@@ -14,6 +14,12 @@
         <a href=""><img src="{{ asset('img/logo.png') }}" alt=""></a>
             <div>
                 <ul id="navbar">
+                    <li>
+                        <form action="{{ route('search') }}" method="get" class="search-form">
+                            <input type="text" class="input-search" name="keyword" id="searchInput" placeholder="Type to Search...">
+                            <button class="btn-search" id="searchButton"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
                     <li><a href="{{route('index')}}" class="active">Home</a></li>
                     <li><a href="{{route('viewShop')}}">Shop</a></li>
                     <li><a href="#">About</a></li>

@@ -27,6 +27,7 @@ Route::get('/', [IndexingController::class, 'index'])->name('index');
 Route::get('/shop', [ShopController::class, 'viewShop'])->name('viewShop');
 Route::get('/shop-category/{category_id}', [ShopController::class, 'viewShopCategory'])->name('shop.category');
 Route::get('/shop-single/{product_id}', [ShopController::class, 'shopSingle'])->name('shop.single');
+Route::get('/search', [IndexingController::class, 'search'])->name('search');
 
 //Checkout 
 Route::post('/check-out', [OrderController::class, 'checkOut'])->name('checkout');
